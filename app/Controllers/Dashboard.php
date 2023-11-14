@@ -16,6 +16,7 @@ class Dashboard extends BaseController
     {
         // return view('dashboard');
         $header['title']='Dashboard';
+        $header['activeMenu']='dashboard';
         echo view('part/header',$header);
         echo view('part/top_menu');
         echo view('dashboard');
@@ -26,6 +27,7 @@ class Dashboard extends BaseController
     public function list() {
         $data = $this->vendorModel->getVendor();
         $header['title']='List';
+        $header['activeMenu']='list';
         echo view('part/header',$header);
         echo view('part/top_menu');
         echo view('list', ['data' => $data]);
@@ -36,6 +38,7 @@ class Dashboard extends BaseController
 
     public function form() {
         $header['title']='Form';
+        $header['activeMenu']='form';
         echo view('part/header', $header);
         echo view('part/top_menu');
         echo view('form');

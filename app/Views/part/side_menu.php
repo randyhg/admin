@@ -15,7 +15,7 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item">
-            <a href="/" class="nav-link">
+            <a href="/" class="nav-link <?php if (in_array($activeMenu, ['dashboard'])) echo "active" ?>">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
@@ -23,7 +23,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="/list" class="nav-link">
+            <a href="/list" class="nav-link <?php if (in_array($activeMenu, ['list'])) echo "active" ?>">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Vendor list
@@ -31,8 +31,8 @@
               </p>
             </a>
           </li>
-          <li class="nav-item menu-open">
-            <a href="<?= base_url('form');?>" class="nav-link active">
+          <li class="nav-item">
+            <a href="<?= base_url('form');?>" class="nav-link <?php if (in_array($activeMenu, ['form'])) echo "active" ?>">
               <i class="nav-icon fas fa-edit"></i>
               <p>
                 Add Vendor

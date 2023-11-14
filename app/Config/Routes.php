@@ -13,3 +13,6 @@ $routes->post('/update/(:num)', 'Dashboard::update/$1');
 $routes->get('/delete/(:num)', 'Dashboard::delete/$1');
 $routes->get('/edit/(:num)', 'Dashboard::edit/$1');
 $routes->delete('/delete/(:num)', 'Dashboard::delete/$1');
+$routes->get('/login', 'Login::index');
+$routes->post('/signin', 'Login::signin');
+// $routes->get('/signin', 'Login::signin');

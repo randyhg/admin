@@ -43,9 +43,9 @@
                   foreach ($data as $vendor) : 
                   ?>
                   <tr>
-                    <td class="text-lg text-boldcol-md-1"><?= $i++; ?></td>
-                    <td class="text-lg text-bold"><?= $vendor['name']; ?></td>
-                    <td class="text-lg text-bold"><?= $vendor['address']; ?></td>
+                    <td class=""><?= $i++; ?></td>
+                    <td class=""><?= $vendor['name']; ?></td>
+                    <td class=""><?= $vendor['address']; ?></td>
                     <td class="col-md-2">
                       <div class="d-flex flex-row justify-content-end align-items-center gap-2">
                         <a href="/edit/<?= $vendor['id']; ?>" type="button" class="btn btn-block btn-danger mx-2 py-2 px-3 flex">Edit
