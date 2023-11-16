@@ -60,7 +60,7 @@ class Dashboard extends BaseController
         echo view('part/header', $header);
         echo view('part/top_menu');
         echo view('edit', ['vendor' => $vendor]);
-        echo view('part/side_menu');
+        // echo view('part/side_menu');
         echo view('part/footer');
     }
     public function update($id)
