@@ -7,6 +7,7 @@ use CodeIgniter\Router\RouteCollection;
  */
 $routes->get('/', 'Dashboard::index');
 $routes->get('/list', 'Dashboard::list');
+$routes->get('/admin/list', 'Dashboard::list');
 $routes->get('/form', 'Dashboard::form');
 $routes->post('/inputVendor', 'Dashboard::inputVendor');
 $routes->post('/update/(:num)', 'Dashboard::update/$1');

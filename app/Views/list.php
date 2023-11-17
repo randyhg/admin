@@ -2,14 +2,13 @@
 <div class="content-wrapper">
     <section class="content">
 
-    <div class="card">
+          <div class="card">
               <div class="card-header d-flex justify-content-between align-items-center">
-                <h3 class="card-title align-items-center">Vendors</h3>
-                <button type="button" class="btn btn-primary ml-auto" data-toggle="modal" data-target="#modal-xl-add">
+                <h3 class="card-title align-items-center"><b>Vendor list</b></h3>
+                <button type="button" class="btn btn-primary btn-lg ml-auto" data-toggle="modal" data-target="#modal-xl-add">
                   Add vendor
                 </button>
               </div>
-              <!-- /.card-header -->
               <div class="card-body">
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
@@ -17,6 +16,9 @@
                     <th>No.</th>
                     <th>Name</th>
                     <th>Address</th>
+                    <th>Phone</th>
+                    <th>Email</th>
+                    <th>Website</th>
                     <th>Action</th>
                   </tr>
                   </thead>
@@ -27,36 +29,34 @@
                   ?>
                   <tr>
                     <td><?= $i; ?></td>
-                    <td class=""><?= $vendor['name']; ?></td>
-                    <td class=""><?= $vendor['address']; ?></td>
-                    <td class="col-md-2">
-                      <div class="d-flex flex-row justify-content-end align-items-center gap-2">
-                        <a href="" type="button" class="btn btn-block btn-danger mx-2 py-2 px-3 flex" data-toggle="modal" data-target="#modal-xl-<?= $i ?>">
-                        <!-- <svg xmlns="http://www.w3.org/2000/svg" class="inline-text h-4 w-4 mr-2 -ml-0.5" viewbox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                                <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" />
-                                            </svg> -->
-                        Edit
+                    <td><?= $vendor['name']; ?></td>
+                    <td><?= $vendor['address']; ?></td>
+                    <td><?= $vendor['phone']; ?></td>
+                    <td><?= $vendor['email']; ?></td>
+                    <td><?= $vendor['website']; ?></td>
+                    <td class="text-center">
+                      <div class="row">
+                      <!-- <div class="d-flex flex-row justify-content-end align-items-center gap-2"> -->
+                      <div class="col-md-6">
+                        <div class="btn-group" role="group" aria-label="Action Buttons">
+                        <!-- edit -->
+                        <a href="" type="button" class="btn btn-block btn-warning btn-md mr-3" data-toggle="modal" data-target="#modal-xl-<?= $i ?>">
+                        <i class="fas fa-edit mr-1"></i>
                         </a>
-                        <!-- <form action="/delete/<?= $vendor['id']; ?>" method="post"> -->
-                            <!-- <?= csrf_field(); ?> -->
-                            <input type="hidden" name="_method" value="DELETE">
-                            <button type="button" class="btn btn-warning mx-2 py-2 px-3 flex" data-toggle="modal" data-target="#modal-danger-<?= $i?>" /*onclick="return confirm('sure?');"*/>
-                            <!-- <svg xmlns="http://www.w3.org/2000/svg" class="inline-text h-4 w-4 mr-2 -ml-0.5" viewbox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                                <path d="M17.414 2.586a2 2 0 00-2.828 0L7 10.172V13h2.828l7.586-7.586a2 2 0 000-2.828z" />
-                                                <path fill-rule="evenodd" d="M2 6a2 2 0 012-2h4a1 1 0 010 2H4v10h10v-4a1 1 0 112 0v4a2 2 0 01-2 2H4a2 2 0 01-2-2V6z" clip-rule="evenodd" />
-                                            </svg> -->
-                            Delete
+                        <!-- delete -->
+                        <button type="button" class="btn btn-danger btn-md" data-toggle="modal" data-target="#deleteModal-<?= $i?>">
+                        <i class="fas fa-trash-alt mr-1"></i>
                         </button>
-                        <!-- </form> -->
+                        </div>
+                      </div>
                       </div>
                     </td>
                   </tr>
-
                    <!-- Edit modal open -->
                    <div class="modal fade" id="modal-xl-<?= $i ?>">
-                          <div class="modal-dialog modal-xl">
+                          <div class="modal-dialog modal-xs">
                             <div class="modal-content">
-                              <div class="modal-header">
+                              <div class="modal-header bg-warning">
                                 <h4 class="modal-title">Edit data</h4>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                   <span aria-hidden="true">&times;</span>
@@ -72,78 +72,106 @@
                                   <label for="exampleInputEmail1">Address</label>
                                   <input type="text" class="form-control" name="vendor_address" id="vendor_address" placeholder="Vendor's address" value="<?= $vendor['address']; ?>">
                                 </div>
+                                <div class="form-group">
+                                    <label for="inputPhone">Phone</label>
+                                    <input type="number" name="vendor_phone" id="vendor_phone" value="<?= $vendor['phone']; ?>" class="form-control">
+                                  </div>
+                                <div class="form-group">
+                                    <label for="inputEmail">Email</label>
+                                    <input type="email" name="vendor_email" id="vendor_email" value="<?= $vendor['email']; ?>" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputWebsite">Website</label>
+                                    <input type="text" name="vendor_website" id="vendor_website" value="<?= $vendor['website']; ?>" class="form-control">
+                                </div>
                               </div>
                               <!-- /.card-body -->
                               <div class="modal-footer justify-content-between">
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                <button type="submit" class="btn btn-primary">Save changes</button>
+                                <button type="submit" class="btn btn-warning ml-auto">Save changes</button>
                               </div>
                               </form>
                             </div>
-                            <!-- /.modal-content -->
                           </div>
-                          <!-- /.modal-dialog -->
                     </div>
                     <!-- Modal close -->
 
                     <!-- Delete modal -->
-                    <div class="modal fade" id="modal-danger-<?= $i++ ?>">
-                        <div class="modal-dialog">
-                        <div class="modal-content bg-danger">
+                    <div class="modal fade" id="deleteModal-<?= $i++ ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <input type="hidden" id="deleteRecord" name="deleteRecord" value="-" />
                             <div class="modal-header">
-                            <h4 class="modal-title">Danger Modal</h4>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
+                                <h5 class="modal-title" id="exampleModalLabel">Delete</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
                             </div>
-                            <div class="modal-body">
-                            <p>One fine body&hellip;</p>
-                            </div>
-                            <div class="modal-footer justify-content-between">
-                            <button type="button" class="btn btn-outline-light" data-dismiss="modal">Close</button>
                             <form action="/delete/<?= $vendor['id']; ?>" method="post">
                             <?= csrf_field(); ?>
                             <input type="hidden" name="_method" value="DELETE">
-                            <button type="submit" class="btn btn-outline-light">Save changes</button>
+                            <div class="modal-body" id="deleteBody">
+                                Delete <i><b><?= $vendor['name']; ?></b></i> record?
+                            </div>
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-danger" id="deleteButton" onclick="deleteSite();">Delete Record</button>
+                            </div>
                             </form>
                             </div>
                         </div>
-                        <!-- /.modal-content -->
-                        </div>
-                        <!-- /.modal-dialog -->
                     </div>
-                    <!-- Modal close -->
-
+                    <!-- Close modal -->
                   <?php endforeach; ?>
                   </tfoot>
                 </table>
               </div>
-              <!-- /.card-body -->
             </div>
-            <!-- /.card -->
           </div>
-          <!-- /.col -->
         </div>
-        <!-- /.row -->
       </div>
-      <!-- /.container-fluid -->
     </section>
-    <!-- /.content -->
   </div>
 
     <!-- Add modal open -->
     <div class="modal fade" id="modal-xl-add">
-        <div class="modal-dialog modal-xl">
-        
-            
-
+      <div class="modal-dialog modal-xs">
+        <div class="modal-content">
+          <div class="modal-header bg-primary">
+                <h3>Add vendor</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true" style="color: white">&times;</span>
+                </button>
+          </div>
+          <div class="modal-body">
+              <div class="form-group">
+              <form action="<?= base_url('inputVendor') ?>" method="POST">
+                <label for="inputName">Name</label>
+                <input type="text" name="vendor_name" id="vendor_name"  class="form-control" required="true">
+              </div>
+              <div class="form-group">
+                <label for="inputAddress">Address</label>
+                <input type="text" name="vendor_address" id="vendor_address"  class="form-control" required="true">
+              </div>
+              <div class="form-group">
+                <label for="inputPhone">Phone</label>
+                <input type="number" name="vendor_phone" id="vendor_phone"  class="form-control" required="true">
+              </div>
+              <div class="form-group">
+                <label for="inputEmail">Email</label>
+                <input type="email" name="vendor_email" id="vendor_email" class="form-control" required="true">
+              </div>
+              <div class="form-group">
+                <label for="inputWebsite">Website</label>
+                <input type="text" name="vendor_website" id="vendor_website" class="form-control" required="true">
+              </div>
+          </div>
+          <div class="modal-footer justify-content-between">
+              <button type="submit" class="btn btn-primary ml-auto">Save changes</button>
+          </div>
+          </form>
         </div>
+      </div>
     </div>
     <!-- Modal close -->
 
-
-    
-
-
-    </section>
+  </section>
 </div>

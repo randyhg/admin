@@ -29,7 +29,7 @@ class Dashboard extends BaseController
         $header['title']='List';
         $header['activeMenu']='list';
         echo view('part/header',$header);
-        echo view('part/top_menu');
+        // echo view('part/top_menu');
         echo view('list', ['data' => $data]);
         // echo view('list', $data);
         echo view('part/side_menu');
@@ -40,7 +40,7 @@ class Dashboard extends BaseController
         $header['title']='Form';
         $header['activeMenu']='form';
         echo view('part/header', $header);
-        echo view('part/top_menu');
+        // echo view('part/top_menu');
         echo view('form');
         echo view('part/side_menu');
         echo view('part/footer');
@@ -49,6 +49,9 @@ class Dashboard extends BaseController
         $data = [
             'name' => $this->request->getVar('vendor_name'),
             'address' => $this->request->getVar('vendor_address'),
+            'phone' => $this->request->getVar('vendor_phone'),
+            'email' => $this->request->getVar('vendor_email'),
+            'website' => $this->request->getVar('vendor_website'),
         ];
         $this->vendorModel->insert($data);
         return redirect()->to('/list');
@@ -58,9 +61,9 @@ class Dashboard extends BaseController
         $vendor = $this->vendorModel->where('id', $id)->first();
         $header['title']='Edit';
         echo view('part/header', $header);
-        echo view('part/top_menu');
+        // echo view('part/top_menu');
         echo view('edit', ['vendor' => $vendor]);
-        // echo view('part/side_menu');
+        echo view('part/side_menu');
         echo view('part/footer');
     }
     public function update($id)
@@ -69,6 +72,9 @@ class Dashboard extends BaseController
         $data = [
             'name' => $this->request->getPost('vendor_name'),
             'address' => $this->request->getPost('vendor_address'),
+            'phone' => $this->request->getPost('vendor_phone'),
+            'email' => $this->request->getPost('vendor_email'),
+            'website' => $this->request->getPost('vendor_website'),
         ];
         $updated =  $this->vendorModel->update($id, $data);
         return redirect()->to('/list');

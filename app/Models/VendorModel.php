@@ -12,7 +12,7 @@ class VendorModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['id', 'name', 'address',];
+    protected $allowedFields    = ['id', 'name', 'address', 'phone', 'email', 'website'];
 
     public function getVendor($id = false)
     {
