@@ -16,9 +16,9 @@ class VendorModel extends Model
 
     public function getVendor($id = false)
     {
-        if($id === false){
+        if ($id === false) {
             return $this->findAll();
-        } else{
+        } else {
             return $this->getWhere(['id' => $id]);
         }   
     }

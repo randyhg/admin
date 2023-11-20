@@ -34,8 +34,8 @@ class Login extends BaseController
                 'password' => $userData['password'],
             ];
             session()->set($sessionData);
-            return redirect()->to('dashboard');
+            return redirect()->to('/');
         }
-        return redirect()->to('dashboard');
+        return redirect()->to('/');
     }
 }

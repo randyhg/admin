@@ -74,7 +74,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="inputPhone">Phone</label>
-                                    <input type="number" name="vendor_phone" id="vendor_phone" value="<?= $vendor['phone']; ?>" class="form-control">
+                                    <input type="text" name="vendor_phone" id="vendor_phone" value="<?= $vendor['phone']; ?>" class="form-control">
                                   </div>
                                 <div class="form-group">
                                     <label for="inputEmail">Email</label>
